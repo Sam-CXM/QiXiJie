@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>邵明明 & 蒋慕瑶</title>
+    <style type="text/css">
+        @font-face {
+            font-family: digit;
+            src: url('digital.ttf') format("truetype");
+        }
+
+        @font-face {
+            font-family: lvjiande;
+            src: url('方正苏新诗柳楷简体.TTF') format("truetype");
+        }
+    </style>
+    <link href="css/default.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/garden.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+</head>
+
+<body>
+    <div id="mainDiv">
+        <div id="content">
+            <div id="code">
+                <span class="str strTitle">《二郎神·炎光谢》</span><br />
+                <span class=" str"><text class="strTxt">【宋】柳永</text></span><br />
+                <br />
+                <span class=" str">炎光谢。</span><br />
+                <span class="str">过暮雨、芳尘轻洒。</span><br />
+                <span class="str">乍露冷风清庭户，爽天如水，玉钩遥挂。</span><br />
+                <span class="str">应是星娥嗟久阻，叙旧约、飙轮欲驾。</span><br />
+                <span class="str">极目处、微云暗度，耿耿银河高泻。</span><br />
+                <br />
+                <span class="str">闲雅。</span><br />
+                <span class="str">须知此景，古今无价。</span><br />
+                <span class="str">运巧思、穿针楼上女，</span><br />
+                <span class="str">抬粉面、云鬟相亚。</span><br />
+                <span class="str">钿合金钗私语处，算谁在、回廊影下。</span><br />
+                <span class="str">愿天上人间，占得欢娱，年年今夜。</span><br />
+            </div>
+            <div id="loveHeart">
+                <canvas id="garden"></canvas>
+                <div id="words">
+                    <div id="messages">
+                        <text class="str">@蒋慕瑶</text>，我们已经相识
+                        <div id="elapseClock"></div>
+                        <div id="love">蒋慕瑶 我爱你</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="audio">
+        <audio src="七夕 - 许嵩.mp3" autoplay loop></audio>
+    </div>
+    <div class="audio_image">
+        <img class="audio_image_img" src="2851294451.jpg" alt="">
+        <div class="audio_image_txt">七夕 - 许嵩</div>
+    </div>
+    <div id="img" class="listImg">
+        <img src="img\1.jpg" alt="2.23" class="listImg_item">
+        <img src="img\2.jpg" alt="2.26" class="listImg_item">
+        <img src="img\3.jpg" alt="2.26" class="listImg_item">
+        <img src="img\4.jpg" alt="2.26" class="listImg_item">
+        <img src="img\5.jpg" alt="2.26" class="listImg_item">
+        <img src="img\6.jpg" alt="2.26" class="listImg_item">
+        <img src="img\7.jpg" alt="3.13" class="listImg_item">
+        <img src="img\8.jpg" alt="3.16" class="listImg_item">
+        <img src="img\9.jpg" alt="3.25" class="listImg_item">
+        <img src="img\10.jpg" alt="3.26" class="listImg_item">
+        <img src="img\11.jpg" alt="3.26" class="listImg_item">
+        <img src="img\12.jpg" alt="5.7" class="listImg_item">
+        <img src="img\13.jpg" alt="6.4" class="listImg_item">
+        <img src="img\14.jpg" alt="7.6" class="listImg_item">
+        <img src="img\15.jpg" alt="7.30" class="listImg_item">
+        <img src="img\16.jpg" alt="8.10" class="listImg_item">
+    </div>
+    </div>
+    <script type="text/javascript">
+        var offsetX = $("#loveHeart").width() / 2;
+        var offsetY = $("#loveHeart").height() / 2 - 55;
+        var together = new Date();
+        // 此处月份介于 0 ~ 11 之间。用本地时间表示，如 8 月要用 7 表示。
+        together.setFullYear(2023, 1, 16);
+        together.setHours(8);
+        together.setMinutes(0);
+        together.setSeconds(0);
+        together.setMilliseconds(0);
+
+        if (!document.createElement('canvas').getContext) {
+            var msg = document.createElement("div");
+            msg.id = "errorMsg";
+            msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
+            document.body.appendChild(msg);
+            $("#code").css("display", "none")
+            document.execCommand("stop");
+        } else {
+            setTimeout(function () {
+                startHeartAnimation();
+            }, 1000);
+
+            timeElapse(together);
+            setInterval(function () {
+                timeElapse(together);
+            }, 200);
+
+            adjustCodePosition();
+            $("#code").typewriter();
+        }
+    </script>
+
+</body>
+
+</html>
